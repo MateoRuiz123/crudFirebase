@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
 import firebase from "../firebase.js";
 import Product from "../models/productModel.js";
 
@@ -43,7 +43,7 @@ export const getProduct = async (req, res, next) => {
     try {
         const id = req.params.id;
         const product = doc(db, "products", id);
-        const data = await getDocs(product);
+        const data = await getDoc(product);
         if (data.exists()) {
             res.status(200).send(data.data());
         } else {
