@@ -11,5 +11,5 @@ app.use(express.json());
 app.use('/api', productRoute)
 
 app.listen(config.port, () =>
-  console.log(`Server is running on port ${config.hostUrl}`)
+  console.log(`Server is running on port ${config.hostUrl}/api`)
 );
